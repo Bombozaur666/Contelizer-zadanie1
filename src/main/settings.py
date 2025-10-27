@@ -75,19 +75,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'main.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ['POSTGRES_DB'],
-        'USER': os.environ['POSTGRES_USER'],
-        'PASSWORD': os.environ['POSTGRES_PASSWORD'],
-        'HOST': 'db',
-    }
-}
-
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -134,24 +121,6 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-# Cache settings
-CACHE_TTL = os.environ['CACHE_TTL']
-
-CACHES = {
-    "default": {
-        "BACKEND": "django.core.cache.backends.redis.RedisCache",
-        "LOCATION": "redis://redis",
-    }
-}
-
-CELERY_BROKER_URL = "redis://redis:6379"
-CELERY_WORKER_CONCURRENCY = os.environ['CELERY_WORKER_CONCURRENCY']
-CELERY_TRACK_STARTED = os.environ['CELERY_TRACK_STARTED']
-
-CELERY_RESULT_BACKEND = os.environ['CELERY_RESULT_BACKEND']
-CELERY_CACHE_BACKEND = os.environ['CELERY_CACHE_BACKEND']
 
 CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
 CORS_ALLOW_CREDENTIALS = True
