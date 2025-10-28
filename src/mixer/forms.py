@@ -11,7 +11,7 @@ class MixerForm(forms.Form):
         })
     )
 
-    def clean_file(self):
+    def clean_file(self)-> str:
         _file = self.cleaned_data.get('file')
         if _file:
             if not _file.name.endswith('.txt'):
