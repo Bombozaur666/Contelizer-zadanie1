@@ -2,5 +2,19 @@
 {% block title %}Preview{% endblock %}
 
 {% block content %}
-    <pre>{{ text }}</pre>
+<div class="container my-5">
+    <h1 class="text-center text-dark mb-4">Your shuffled file</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+            <div class="shadow-sm border rounded-3 p-4 bg-light-subtle">
+                <pre style="white-space: pre-wrap; word-wrap: break-word; background: none;">{{ text }}</pre>
+            </div>
+            <div class="text-center mt-4">
+                <a href="{% url 'mixer-upload' %}" class="btn btn-primary">
+                    Go back and shuffle another
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
